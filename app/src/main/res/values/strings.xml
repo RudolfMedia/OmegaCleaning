@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Omega Cleaning</string>
+    <string name="title_tab1">My Account</string>
+    <string name="title_tab2">Contact Us</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
