@@ -15,7 +15,7 @@ public class ContactFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment and create an instance to call the "findViewById" method on.
         RelativeLayout rLayout = (RelativeLayout)inflater.inflate(R.layout.fragment_contact, container, false);
 		//Create Email intent
 		final Intent emailIntent = new Intent(Intent.ACTION_SEND);

@@ -2,16 +2,11 @@ package com.rudolfmedia.danrudolf.omegacleaning;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.util.Locale;
 
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
@@ -35,7 +30,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         // Create the adapter that will return a fragment for each of the
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -98,50 +93,5 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-			Fragment tabFrag = new Fragment();
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-
-			switch (position){
-				case 0:
-					tabFrag = new MyAccountFragment();
-					break;
-				case 1:
-					tabFrag = new  ContactFragment();
-					break;
-			}
-            return tabFrag;
-        }
-
-        @Override
-        public int getCount() {
-            return 2;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            Locale l = Locale.getDefault();
-            switch (position) {
-                case 0:
-                    return getString(R.string.title_tab1).toUpperCase(l);
-                case 1:
-                    return getString(R.string.title_tab2).toUpperCase(l);
-
-            }
-            return null;
-        }
-    }
 
 }
