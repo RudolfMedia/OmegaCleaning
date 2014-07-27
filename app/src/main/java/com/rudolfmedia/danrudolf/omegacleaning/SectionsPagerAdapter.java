@@ -37,13 +37,15 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 			case 1:
 				tabFrag = new  ContactFragment();
 				break;
+			case 2:
+				tabFrag = new QuoteFragment();
 		}
 		return tabFrag;
 	}
 
 	@Override
 	public int getCount() {
-		return 2;
+		return 3;
 	}
 
 	@Override
@@ -54,6 +56,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 				return mContext.getString(R.string.title_tab1).toUpperCase(l);
 			case 1:
 				return mContext.getString(R.string.title_tab2).toUpperCase(l);
+			case 2:
+				return mContext.getString(R.string.title_tab3).toUpperCase();
 
 		}
 		return null;

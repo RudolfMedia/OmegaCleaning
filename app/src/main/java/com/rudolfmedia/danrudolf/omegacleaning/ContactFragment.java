@@ -16,23 +16,9 @@ public class ContactFragment extends android.app.Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment and create an instance to call the "findViewById" method on.
-        RelativeLayout rLayout = (RelativeLayout)inflater.inflate(R.layout.fragment_contact, container, false);
+        RelativeLayout rLayout = (RelativeLayout)inflater.inflate(R.layout.fragment_cleaning, container, false);
 		//Create Email intent
 		final Intent emailIntent = new Intent(Intent.ACTION_SEND);
-
-		Button sendQuote = (Button) rLayout.findViewById(R.id.quote_button);
-
-		sendQuote.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				emailIntent.setType("plain/text");
-				emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"danRudolf@gmail.com"});
-				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Quote Request");
-				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I would like to request a quote for cleaning");
-				startActivity(Intent.createChooser(emailIntent, "Request Quote With"));
-
-			}
-		});
 
 		Button schedule = (Button) rLayout.findViewById(R.id.schedule_button);
 		schedule.setOnClickListener(new View.OnClickListener() {

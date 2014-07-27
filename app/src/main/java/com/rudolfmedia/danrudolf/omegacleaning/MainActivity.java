@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.Parse;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 
@@ -23,10 +24,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+		Parse.initialize(this, "d7ERHwPLPOpiKL04t4XsJ79hD1exMPJJwoQKMLFi", "40tP4wf2lD24BLHJSn1RQM2noweA8eN3Kx1vxLEy");
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
 
         // Create the adapter that will return a fragment for each of the
         // primary sections of the activity.
@@ -58,6 +61,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                             .setTabListener(this));
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,5 +97,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
+	}
 
-}
+
+
