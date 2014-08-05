@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="ConfirmPassword"
+        android:hint="Confirm Password"
         android:ems="10"
         android:id="@+id/signup_password_confirm"
         android:layout_below="@+id/signup_password"

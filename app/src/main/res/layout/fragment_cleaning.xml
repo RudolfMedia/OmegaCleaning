@@ -6,46 +6,52 @@
     android:paddingLeft="15dp"
     android:paddingRight="15dp">
 
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Request Cleaning"
+        android:text="Schedule Cleaning"
         android:id="@+id/schedule_button"
         android:background="#ff008ebf"
         android:textColor="#ffffffff"
-        android:layout_gravity="center_vertical"
+        android:layout_marginTop="80dp"
         android:paddingLeft="15dip"
         android:paddingRight="15dip"
-        android:layout_marginTop="95dp"
-        android:layout_below="@+id/enterDate"
+        android:layout_below="@+id/phone"
         android:layout_centerHorizontal="true"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="Name"
+        android:id="@+id/name"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
         android:ems="10"
-        android:id="@+id/enterDate"
-        android:hint="Enter Date"
-        android:layout_below="@+id/enterAddress"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"/>
+        android:hint="Address"
+        android:id="@+id/address"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/name"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
+        android:inputType="phone"
         android:ems="10"
-        android:id="@+id/enterAddress"
-        android:hint="Enter Address"
-        android:layout_marginTop="151dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:hint="Contact Phone Number"
+        android:id="@+id/phone"
+        android:layout_below="@+id/address"
+        android:layout_marginTop="15dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

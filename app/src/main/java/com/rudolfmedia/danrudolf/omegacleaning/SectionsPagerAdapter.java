@@ -32,7 +32,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 		switch (position){
 			case 0:
-				tabFrag = new MyAccountFragment();
+				tabFrag = new PlaceHolder();
 				break;
 			case 1:
 				tabFrag = new  ContactFragment();
