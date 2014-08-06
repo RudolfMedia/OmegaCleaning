@@ -16,7 +16,7 @@
         android:layout_marginTop="80dp"
         android:paddingLeft="15dip"
         android:paddingRight="15dip"
-        android:layout_below="@+id/phone"
+        android:layout_below="@+id/schedule_phone"
         android:layout_centerHorizontal="true"/>
 
     <EditText
@@ -25,7 +25,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:hint="Name"
-        android:id="@+id/name"
+        android:id="@+id/schedule_name"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="116dp"/>
@@ -36,11 +36,11 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:hint="Address"
-        android:id="@+id/address"
+        android:id="@+id/schedule_address"
         android:layout_marginTop="15dp"
-        android:layout_below="@id/name"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name"/>
+        android:layout_below="@id/schedule_name"
+        android:layout_alignLeft="@+id/schedule_name"
+        android:layout_alignStart="@+id/schedule_name"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -48,8 +48,8 @@
         android:inputType="phone"
         android:ems="10"
         android:hint="Contact Phone Number"
-        android:id="@+id/phone"
-        android:layout_below="@+id/address"
+        android:id="@+id/schedule_phone"
+        android:layout_below="@+id/schedule_address"
         android:layout_marginTop="15dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
