@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ public class QuoteFragment extends Fragment {
 					int duration = Toast.LENGTH_SHORT;
 
 					Toast toast = Toast.makeText(context, text, duration);
+					toast.setGravity(Gravity.TOP, 0, 250);
 					toast.show();
 				}
 
@@ -50,6 +52,7 @@ public class QuoteFragment extends Fragment {
 					int duration = Toast.LENGTH_SHORT;
 
 					Toast toast = Toast.makeText(context, text, duration);
+					toast.setGravity(Gravity.TOP, 0, 250);
 					toast.show();
 
 				}
@@ -61,6 +64,7 @@ public class QuoteFragment extends Fragment {
 					int duration = Toast.LENGTH_SHORT;
 
 					Toast toast = Toast.makeText(context, text, duration);
+					toast.setGravity(Gravity.TOP, 0, 250);
 					toast.show();
 				}
 
@@ -69,7 +73,9 @@ public class QuoteFragment extends Fragment {
 					emailIntent.setType("plain/text");
 					emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"danRudolf@gmail.com"});
 					emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Quote Request");
-					emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I would like to request a quote for cleaning");
+					emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+					"Hello,\n \nI would like to schedule a cleaning at " + address.getText()+". "+"Please feel free to contact " +
+					name.getText() + " at " + phoneNum.getText() +"\n \n Thanks!");
 					startActivity(Intent.createChooser(emailIntent, "Request Quote With"));
 				}
 			}

@@ -3,6 +3,7 @@ package com.rudolfmedia.danrudolf.omegacleaning;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class ContactFragment extends android.app.Fragment {
 					int duration = Toast.LENGTH_SHORT;
 
 					Toast toast = Toast.makeText(context, text, duration);
+					toast.setGravity(Gravity.TOP, 0, 250);
 					toast.show();
 				} else if (address.getText().length() == 0) {
 
@@ -46,6 +48,7 @@ public class ContactFragment extends android.app.Fragment {
 					int duration = Toast.LENGTH_SHORT;
 
 					Toast toast = Toast.makeText(context, text, duration);
+					toast.setGravity(Gravity.TOP, 0, 250);
 					toast.show();
 				} else if (phoneNumber.getText().length() == 0) {
 
@@ -54,13 +57,16 @@ public class ContactFragment extends android.app.Fragment {
 					int duration = Toast.LENGTH_SHORT;
 
 					Toast toast = Toast.makeText(context, text, duration);
+					toast.setGravity(Gravity.TOP, 0, 250);
 					toast.show();
 				} else {
 
 					emailIntent.setType("plain/text");
 					emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"danRudolf@gmail.com"});
 					emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Request Cleaning");
-					emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I would like to request a Cleaning for This Date");
+					emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+					"Hello,\n \nI would like to request a quote for cleaning at " + address.getText()+". "+"Please feel free to contact " +
+					name.getText() + " at " + phoneNumber.getText() +"\n\nThanks!");
 					startActivity(Intent.createChooser(emailIntent, "Request Cleaning With"));
 				}
 			}

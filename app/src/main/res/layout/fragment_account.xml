@@ -18,7 +18,7 @@
         android:inputType="textEmailAddress"
         android:hint="Email"
         android:ems="10"
-        android:id="@+id/enterAddress"
+        android:id="@+id/enterEmail"
         android:layout_marginTop="72dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -33,7 +33,7 @@
         android:ems="10"
         android:id="@+id/password_signin"
         android:layout_marginTop="41dp"
-        android:layout_below="@+id/enterAddress"
+        android:layout_below="@+id/enterEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
@@ -44,29 +44,29 @@
         android:text="or"
         android:id="@+id/textView"
         android:gravity="center"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_above="@+id/sign_up"
         android:layout_alignRight="@+id/login"
         android:layout_alignEnd="@+id/login"
         android:textColor="#008ebf"
-        android:layout_below="@+id/login"/>
+        android:layout_below="@+id/login"
+        android:layout_alignLeft="@+id/sign_up"
+        android:layout_alignStart="@+id/sign_up"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/login"
         android:layout_toStartOf="@+id/sign_up"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:textColor="#ffffff"
         android:background="#008ebf"
         android:gravity="center_vertical|center_horizontal"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:layout_below="@+id/password_signin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/password_signin"
-        android:layout_alignEnd="@+id/password_signin"/>
+        android:layout_alignRight="@+id/sign_up"
+        android:layout_alignEnd="@+id/sign_up"
+        android:layout_alignLeft="@+id/sign_up"
+        android:layout_alignStart="@+id/sign_up"/>
 
 
     <Button
@@ -78,10 +78,10 @@
         android:background="#008ebf"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="69dp"
+        android:padding="8dip"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:padding="8dip"/>
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
 
