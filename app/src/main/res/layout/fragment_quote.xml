@@ -19,7 +19,7 @@
         android:paddingRight="15dip"
         android:layout_below="@+id/phone"
         android:layout_centerHorizontal="true"
-        android:textSize="1dp"/>
+        android:textSize="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
