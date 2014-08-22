@@ -4,4 +4,56 @@
                 android:layout_height="wrap_content">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Date:"
+        android:id="@+id/date"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentStart="true"
+        android:textColor="#6C6E70"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Invoice No"
+        android:id="@+id/invoiceNo"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/date"
+        android:layout_marginTop="10dp"
+        android:textColor="#6C6E70"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="date"
+        android:id="@+id/dateTextView"
+        android:layout_above="@+id/invoiceNo"
+        android:layout_toRightOf="@+id/date"
+        android:layout_toEndOf="@+id/date"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#6C6E70"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Invoice"
+        android:id="@+id/invoiceNoTextView"
+        android:layout_alignTop="@+id/invoiceNo"
+        android:layout_toEndOf="@+id/invoiceNo"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#6C6E70"
+        android:layout_alignRight="@+id/dateTextView"
+        android:layout_alignEnd="@+id/dateTextView"/>
+
 </RelativeLayout>

@@ -79,4 +79,43 @@
         android:background="#555555"
         android:height="3dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/invoiceDetailNo"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#6C6E70"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/invoiceDetailDate"
+        android:layout_alignLeft="@+id/invoiceDetailNo"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignStart="@+id/invoiceDetailNo"
+        android:layout_alignRight="@+id/invoiceDetailNo"
+        android:layout_alignEnd="@+id/invoiceDetailNo"
+        android:textColor="#6C6E70"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/invoiceDetailAddress"
+        android:layout_alignLeft="@+id/invoiceDetailDate"
+        android:layout_alignStart="@+id/invoiceDetailDate"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignRight="@+id/invoiceDetailDate"
+        android:layout_alignEnd="@+id/invoiceDetailDate"
+        android:textColor="#6C6E70"/>
+
 </RelativeLayout>

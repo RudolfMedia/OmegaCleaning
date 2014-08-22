@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
-import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
 
 public class InvoiceHistory extends Fragment {
 
-	private ParseQueryAdapter<ParseObject> invoiceAdapter;
+//	private ParseQueryAdapter<ParseObject> CustomAdapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +28,19 @@ final   FrameLayout layout = (FrameLayout) inflater.inflate(R.layout.fragment_in
 
 		ListView invoicesListView = (ListView) layout.findViewById(R.id.invoiceList);
 
-		invoiceAdapter = new ParseQueryAdapter<ParseObject>(getActivity(), "Invoice");
-		invoiceAdapter.setTextKey("Date");
-		invoicesListView.setAdapter(invoiceAdapter);
-		invoiceAdapter.loadObjects();
+		ParseQueryAdapter adapter = new CustomAdapter(getActivity());
+//		invoicesListView.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View view) {
+//				Fragment detailView = new InvoicesFragment();
+//				FragmentManager fragmentManager = getFragmentManager();
+//				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//				fragmentTransaction.replace(R.id.placeholder, detailView);
+//				fragmentTransaction.commit();
+//			}
+//		});
+		invoicesListView.setAdapter(adapter);
+		adapter.loadObjects();
 
 		return layout;
     }
