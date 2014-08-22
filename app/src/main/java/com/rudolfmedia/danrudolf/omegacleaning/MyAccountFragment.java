@@ -37,6 +37,7 @@ public class MyAccountFragment extends Fragment{
 				FragmentManager fragmentManager = getFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 				fragmentTransaction.replace(R.id.placeholder, signupFragment);
+				fragmentTransaction.addToBackStack(null);
 				fragmentTransaction.commit();
 
 			}
@@ -83,6 +84,7 @@ public class MyAccountFragment extends Fragment{
 								FragmentManager fragmentManager = getFragmentManager();
 								FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 								fragmentTransaction.replace(R.id.placeholder, accounthistory);
+								fragmentTransaction.addToBackStack(null);
 								fragmentTransaction.commit();
 
 							}
