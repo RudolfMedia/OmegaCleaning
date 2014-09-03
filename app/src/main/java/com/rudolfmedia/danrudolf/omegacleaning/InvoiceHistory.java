@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
 
@@ -31,11 +32,16 @@ final   FrameLayout layout = (FrameLayout) inflater.inflate(R.layout.fragment_in
 
 		ListView invoicesListView = (ListView) layout.findViewById(R.id.invoiceList);
 
-		ParseQueryAdapter adapter = new CustomAdapter(getActivity());
+		final ParseQueryAdapter adapter = new CustomAdapter(getActivity());
 		invoicesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-				Fragment detailView = new InvoicesFragment();
+
+				ParseObject object = adapter.getItem(i);
+
+				Fragment detailView = InvoicesFragment.newInstance(object.getString("InvoiceNumber"),
+						object.getString("Date"), object.getString("Address"), object.getString("Details"), object.getString("TotalCost"));
+
 				FragmentManager fragmentManager = getFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 				fragmentTransaction.replace(R.id.placeholder, detailView);
