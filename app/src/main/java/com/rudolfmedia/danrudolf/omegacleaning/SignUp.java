@@ -3,7 +3,6 @@ package com.rudolfmedia.danrudolf.omegacleaning;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -33,8 +32,10 @@ public class SignUp extends android.app.Fragment {
                              Bundle savedInstanceState) {
 
 		final View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
-		final View layout = inflater.inflate(R.layout.toastlayout,
-				(ViewGroup) rootView.findViewById(R.id.toast_layout_root));
+
+		final View layout = inflater.inflate(R.layout.toastlayout, (ViewGroup) rootView.findViewById(R.id.toast_layout_root));
+
+		final View layoutBlue = inflater.inflate(R.layout.bluetoast, (ViewGroup) rootView.findViewById(R.id.toast_layout_blue));
 
 		Button createAccount = (Button) rootView.findViewById(R.id.create_account);
 
@@ -108,8 +109,8 @@ public class SignUp extends android.app.Fragment {
 				else{
 
 					ParseUser user = new ParseUser();
-					user.setUsername(emailField.getText().toString());
-					user.setEmail(emailField.getText().toString());
+					user.setUsername(emailField.getText().toString().toLowerCase());
+					user.setEmail(emailField.getText().toString().toLowerCase());
 					user.setPassword(password.getText().toString());
 					user.put("Name", nameField.getText().toString());
 
@@ -118,12 +119,13 @@ public class SignUp extends android.app.Fragment {
 						public void done(ParseException e) {
 
 							if (e == null){
-								Context context = getActivity().getApplicationContext();
-								CharSequence text = "Account Created!";
-								int duration = Toast.LENGTH_SHORT;
+								TextView text = (TextView) layout.findViewById(R.id.text);
+								text.setText("Account Created!");
 
-								Toast toast = Toast.makeText(context, text, duration);
+								Toast toast = new Toast(getActivity().getApplicationContext());
 								toast.setGravity(Gravity.TOP, 0, 250);
+								toast.setDuration(Toast.LENGTH_SHORT);
+								toast.setView(layout);
 								toast.show();
 
 								new Timer().schedule(new TimerTask() {
@@ -140,12 +142,14 @@ public class SignUp extends android.app.Fragment {
 
 							}
 							else{
-								Context context = getActivity().getApplicationContext();
-								CharSequence text = e.getMessage();
-								int duration = Toast.LENGTH_SHORT;
 
-								Toast toast = Toast.makeText(context, text, duration);
+								TextView textError = (TextView) layoutBlue.findViewById(R.id.textBlue);
+								textError.setText(e.getMessage());
+
+								Toast toast = new Toast(getActivity().getApplicationContext());
 								toast.setGravity(Gravity.TOP, 0, 250);
+								toast.setDuration(Toast.LENGTH_SHORT);
+								toast.setView(layoutBlue);
 								toast.show();
 							}
 

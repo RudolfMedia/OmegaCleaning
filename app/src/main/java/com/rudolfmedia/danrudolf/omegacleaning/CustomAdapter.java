@@ -22,6 +22,7 @@ public class CustomAdapter extends ParseQueryAdapter implements AdapterView.OnIt
 			public ParseQuery create() {
 				ParseQuery query = new ParseQuery("Invoice");
 				query.whereEqualTo("CustomerID", ParseUser.getCurrentUser());
+				query.orderByDescending("createdAt");
 				return query;
 			}
 		});

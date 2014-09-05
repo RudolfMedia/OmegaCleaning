@@ -76,7 +76,7 @@ public class QuoteFragment extends Fragment {
 				else {
 
 					emailIntent.setType("plain/text");
-					emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"danRudolf@gmail.com"});
+					emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"dennisfromomega@gmail.com"});
 					emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Quote Request");
 					emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
 					"Hello,\n \nI would like to request a quote for " + address.getText()+". "+"Please feel free to contact " +
