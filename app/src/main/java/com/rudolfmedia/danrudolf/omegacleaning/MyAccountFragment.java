@@ -79,7 +79,7 @@ public class MyAccountFragment extends Fragment{
 				}
 				else {
 
-					ParseUser.logInInBackground(loginName.getText().toString(), loginPassword.getText().toString(), new LogInCallback() {
+					ParseUser.logInInBackground(loginName.getText().toString().toLowerCase(), loginPassword.getText().toString(), new LogInCallback() {
 						@Override
 						public void done(ParseUser parseUser, ParseException e) {
 
