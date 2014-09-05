@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
+import com.parse.ParseUser;
 
 
 public class PlaceHolder extends Fragment {
@@ -30,14 +30,26 @@ public class PlaceHolder extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-		Fragment login = new MyAccountFragment();
-		fragmentTransaction.replace(R.id.placeholder, login);
-		fragmentTransaction.commit();
 
-		return inflater.inflate(R.layout.fragment_place_holder, container, false);
+		if ((ParseUser.getCurrentUser() != null)) {
 
+			FragmentManager fragmentManager = getFragmentManager();
+			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+			Fragment invoiceHistory = new InvoiceHistory();
+			fragmentTransaction.replace(R.id.placeholder, invoiceHistory);
+			fragmentTransaction.commit();
+
+		}
+
+		else{
+			FragmentManager fragmentManager = getFragmentManager();
+			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+			Fragment login = new MyAccountFragment();
+			fragmentTransaction.replace(R.id.placeholder, login);
+			fragmentTransaction.commit();
+
+		}
+			return inflater.inflate(R.layout.fragment_place_holder, container, false);
     }
 
     @Override

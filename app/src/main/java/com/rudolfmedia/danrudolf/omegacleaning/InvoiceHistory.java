@@ -10,14 +10,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
+import java.util.List;
+
 
 public class InvoiceHistory extends Fragment {
 
-//	private ParseQueryAdapter<ParseObject> CustomAdapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +30,11 @@ public class InvoiceHistory extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-final   FrameLayout layout = (FrameLayout) inflater.inflate(R.layout.fragment_invoice_history, container, false);
+		final FrameLayout layout = (FrameLayout) inflater.inflate(R.layout.fragment_invoice_history, container, false);
 
 		ListView invoicesListView = (ListView) layout.findViewById(R.id.invoiceList);
+		final TextView noInvoices = (TextView) layout.findViewById(R.id.noInvoices);
+
 
 		final ParseQueryAdapter adapter = new CustomAdapter(getActivity());
 		invoicesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -51,9 +55,23 @@ final   FrameLayout layout = (FrameLayout) inflater.inflate(R.layout.fragment_in
 		});
 
 		invoicesListView.setAdapter(adapter);
-		adapter.loadObjects();
+		adapter.addOnQueryLoadListener(new ParseQueryAdapter.OnQueryLoadListener() {
 
+			public void onLoading() {
+				// Trigger any "loading" UI
+			}
+
+			@Override
+			public void onLoaded(List list, Exception e) {
+				if (adapter.getCount() ==0){
+					noInvoices.setVisibility(View.VISIBLE);
+				}
+			}
+
+		});
+
+		adapter.loadObjects();
 		return layout;
-    }
+	}
 
 }

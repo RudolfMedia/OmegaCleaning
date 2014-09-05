@@ -33,6 +33,8 @@ public class SignUp extends android.app.Fragment {
                              Bundle savedInstanceState) {
 
 		final View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
+		final View layout = inflater.inflate(R.layout.toastlayout,
+				(ViewGroup) rootView.findViewById(R.id.toast_layout_root));
 
 		Button createAccount = (Button) rootView.findViewById(R.id.create_account);
 
@@ -47,52 +49,59 @@ public class SignUp extends android.app.Fragment {
 
 				if (nameField.getText().length() == 0){
 
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter a name";
-					int duration = Toast.LENGTH_SHORT;
-					Toast toast = Toast.makeText(context, text, duration);
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter a Name");
+
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
 
 				}
 
 				else if (emailField.getText().length() == 0){
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter an email";
-					int duration = Toast.LENGTH_SHORT;
-					Toast toast = Toast.makeText(context, text, duration);
+
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter an Email Address");
+
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
 				}
 
 				else if (password.getText().length() == 0){
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter a password";
-					int duration = Toast.LENGTH_SHORT;
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter a Password");
 
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
 				}
 
 				else if (password.getText().length() < 4){
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Passwords must be at least 4 characters";
-					int duration = Toast.LENGTH_SHORT;
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Password Must Be 4 Characters Long");
 
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
 				}
 
 				else if (!password.getText().toString().equals(confirmPassword.getText().toString())){
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Passwords Do Not Match");
 
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Passwords do not match";
-					int duration = Toast.LENGTH_SHORT;
-
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
 				}
 

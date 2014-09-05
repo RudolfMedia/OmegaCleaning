@@ -3,7 +3,6 @@ package com.rudolfmedia.danrudolf.omegacleaning;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,10 +22,13 @@ import com.parse.ParseUser;
  */
 public class MyAccountFragment extends Fragment{
 
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		final RelativeLayout rootView =  (RelativeLayout) inflater.inflate(R.layout.fragment_account, container, false);
+		final View layout = inflater.inflate(R.layout.toastlayout,
+				(ViewGroup) rootView.findViewById(R.id.toast_layout_root));
 
 		Button signupButton = (Button) rootView.findViewById(R.id.sign_up);
 		signupButton.setOnClickListener(new View.OnClickListener() {
@@ -54,23 +56,25 @@ public class MyAccountFragment extends Fragment{
 
 				if (loginName.getText().length() == 0){
 
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter your email";
-					int duration = Toast.LENGTH_SHORT;
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter Your Email Address");
 
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
 
 				}
 
 				else if(loginPassword.getText().length() == 0){
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter your password";
-					int duration = Toast.LENGTH_SHORT;
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter Your Password");
 
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
 				}
 				else {
@@ -89,11 +93,20 @@ public class MyAccountFragment extends Fragment{
 
 							}
 							else{
-								Context context = getActivity().getApplicationContext();
-								CharSequence text = e.getMessage();
-								int duration = Toast.LENGTH_SHORT;
-								Toast toast = Toast.makeText(context, text, duration);
+								TextView text = (TextView) layout.findViewById(R.id.text);
+
+								if (e.getMessage().contentEquals("i/o failure: java.net.UnknownHostException: Unable to resolve host \"api.parse.com\": No address associated with hostname")){
+									text.setText("Connection Error: Please Try Again");
+								}
+
+								else{
+									text.setText(e.getMessage());
+								}
+
+								Toast toast = new Toast(getActivity().getApplicationContext());
 								toast.setGravity(Gravity.TOP, 0, 250);
+								toast.setDuration(Toast.LENGTH_SHORT);
+								toast.setView(layout);
 								toast.show();
 
 							}

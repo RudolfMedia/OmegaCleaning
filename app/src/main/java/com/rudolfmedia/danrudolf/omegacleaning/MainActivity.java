@@ -2,6 +2,8 @@ package com.rudolfmedia.danrudolf.omegacleaning;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -9,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.Parse;
+import com.parse.ParseUser;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 
@@ -72,11 +75,18 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.logoutButton) {
+
+			ParseUser.logOut();
+			Fragment login = new MyAccountFragment();
+			FragmentManager fragmentManager = getFragmentManager();
+			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+			fragmentTransaction.replace(R.id.placeholder, login);
+			fragmentTransaction.addToBackStack(null);
+			fragmentTransaction.commit();
+
             return true;
         }
         return super.onOptionsItemSelected(item);

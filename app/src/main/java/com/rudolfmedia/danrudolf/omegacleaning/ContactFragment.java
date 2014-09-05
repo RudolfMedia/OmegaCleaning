@@ -1,6 +1,5 @@
 package com.rudolfmedia.danrudolf.omegacleaning;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -21,6 +20,10 @@ public class ContactFragment extends android.app.Fragment {
 
         // Inflate the layout for this fragment and create an instance to call the "findViewById" method on.
         final RelativeLayout rLayout = (RelativeLayout)inflater.inflate(R.layout.fragment_cleaning, container, false);
+		final View layout = inflater.inflate(R.layout.toastlayout,
+				(ViewGroup) rLayout.findViewById(R.id.toast_layout_root));
+
+
 		//Create Email intent
 		final Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
@@ -34,31 +37,37 @@ public class ContactFragment extends android.app.Fragment {
 
 				if (name.getText().length() == 0) {
 
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter a name";
-					int duration = Toast.LENGTH_SHORT;
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter a Name");
 
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
+
 				} else if (address.getText().length() == 0) {
 
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter an address";
-					int duration = Toast.LENGTH_SHORT;
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter an Address");
 
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
+
 				} else if (phoneNumber.getText().length() == 0) {
 
-					Context context = getActivity().getApplicationContext();
-					CharSequence text = "Please enter a phonenumber";
-					int duration = Toast.LENGTH_SHORT;
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter a Phone Number");
 
-					Toast toast = Toast.makeText(context, text, duration);
+					Toast toast = new Toast(getActivity().getApplicationContext());
 					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
 					toast.show();
+
 				} else {
 
 					emailIntent.setType("plain/text");

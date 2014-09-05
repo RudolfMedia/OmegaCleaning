@@ -11,4 +11,16 @@
         android:id="@+id/invoiceList"
         android:layout_gravity="left|top"
         android:clickable="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="No Invoices"
+        android:id="@+id/noInvoices"
+        android:textColor="#008EBF"
+        android:visibility="invisible"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="100dp"/>
+
 </FrameLayout>
