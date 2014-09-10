@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 
 /**
@@ -84,6 +85,11 @@ public class MyAccountFragment extends Fragment{
 						public void done(ParseUser parseUser, ParseException e) {
 
 							if (parseUser != null) {
+
+								ParseInstallation current = ParseInstallation.getCurrentInstallation();
+								current.put("username", parseUser.getUsername());
+								current.saveInBackground();
+
 								Fragment accounthistory = new InvoiceHistory();
 								FragmentManager fragmentManager = getFragmentManager();
 								FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
