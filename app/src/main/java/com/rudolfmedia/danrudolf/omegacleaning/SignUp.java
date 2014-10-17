@@ -47,6 +47,8 @@ public class SignUp extends android.app.Fragment {
 				TextView emailField = (TextView) rootView.findViewById(R.id.signup_email);
 				TextView password = (TextView) rootView.findViewById(R.id.signup_password);
 				TextView confirmPassword = (TextView) rootView.findViewById(R.id.signup_password_confirm);
+				TextView companyName = (TextView) rootView.findViewById(R.id.companyName);
+				TextView phone = (TextView) rootView.findViewById(R.id.phoneSignup);
 
 				if (nameField.getText().length() == 0){
 
@@ -105,6 +107,29 @@ public class SignUp extends android.app.Fragment {
 					toast.setView(layout);
 					toast.show();
 				}
+				else if (companyName.getText().length() == 0){
+
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter a Company Name");
+
+					Toast toast = new Toast(getActivity().getApplicationContext());
+					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
+					toast.show();
+				}
+
+				else if (phone.getText().length() < 5){
+
+					TextView text = (TextView) layout.findViewById(R.id.text);
+					text.setText("Please Enter a Phone Number");
+
+					Toast toast = new Toast(getActivity().getApplicationContext());
+					toast.setGravity(Gravity.TOP, 0, 250);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(layout);
+					toast.show();
+				}
 
 				else{
 
@@ -113,6 +138,8 @@ public class SignUp extends android.app.Fragment {
 					user.setEmail(emailField.getText().toString().toLowerCase());
 					user.setPassword(password.getText().toString());
 					user.put("Name", nameField.getText().toString());
+					user.put("CompanyName",companyName.getText().toString());
+					user.put("PhoneNumber", phone.getText().toString());
 
 					user.signUpInBackground(new SignUpCallback() {
 						@Override

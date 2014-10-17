@@ -11,8 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.Parse;
-import com.parse.ParseAnalytics;
-import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.PushService;
 
@@ -84,16 +82,21 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         int id = item.getItemId();
         if (id == R.id.logoutButton) {
 
-			ParseUser.logOut();
-			Fragment login = new MyAccountFragment();
-			FragmentManager fragmentManager = getFragmentManager();
-			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-			fragmentTransaction.replace(R.id.placeholder, login);
-			fragmentTransaction.addToBackStack(null);
-			fragmentTransaction.commit();
+			if (ParseUser.getCurrentUser() == null) {
 
-            return true;
-        }
+			} else {
+				ParseUser.logOut();
+				Fragment login = new MyAccountFragment();
+				FragmentManager fragmentManager = getFragmentManager();
+				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+				fragmentTransaction.replace(R.id.placeholder, login);
+				fragmentTransaction.addToBackStack(null);
+				fragmentTransaction.commit();
+
+				return true;
+
+			}
+		}
         return super.onOptionsItemSelected(item);
     }
 
