@@ -71,7 +71,7 @@ public class ContactFragment extends android.app.Fragment {
 				} else {
 
 					emailIntent.setType("plain/text");
-					emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"dennisfromomega@gmail.com"});
+					emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"OmegaServicesOffice@gmail.com"});
 					emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Request Cleaning");
 					emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
 					"Hello,\n \nI would like to request a quote for cleaning at " + address.getText()+". "+"Please feel free to contact " +
