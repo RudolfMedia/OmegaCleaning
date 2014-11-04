@@ -119,18 +119,16 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	protected void onResume() {
 		super.onResume();
 
-		if (this.mSectionsPagerAdapter == null){
-
-			// Create the adapter that will return a fragment for each of the
-			// primary sections of the activity.
-			mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
-
-			// Set up the ViewPager with the sections adapter.
-			mViewPager = (ViewPager) findViewById(R.id.pager);
-			mViewPager.setAdapter(mSectionsPagerAdapter);
-
-
-		}
+//		if (this.mSectionsPagerAdapter == null){
+//
+//			// Create the adapter that will return a fragment for each of the
+//			mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
+//
+//			// Set up the ViewPager with the sections adapter.
+//			mViewPager = (ViewPager) findViewById(R.id.pager);
+//			mViewPager.setAdapter(mSectionsPagerAdapter);
+//
+//		}
 	}
 }
 

@@ -39,26 +39,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="or"
-        android:id="@+id/textView"
-        android:gravity="center"
-        android:layout_above="@+id/sign_up"
-        android:layout_alignRight="@+id/login"
-        android:layout_alignEnd="@+id/login"
-        android:textColor="#008ebf"
-        android:layout_below="@+id/login"
-        android:layout_alignLeft="@+id/sign_up"
-        android:layout_alignStart="@+id/sign_up"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/login"
-        android:layout_toStartOf="@+id/sign_up"
+        android:layout_toleftOf="@+id/sign_up"
         android:layout_marginTop="80dp"
         android:textColor="#ffffff"
         android:background="@drawable/mybutton"
@@ -74,16 +61,32 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:layout_marginTop="15dp"
         android:text="Create Account"
         android:id="@+id/sign_up"
         android:gravity="center"
         android:background="@drawable/mybutton"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:layout_marginBottom="80dp"
         android:padding="8dip"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refer a Friend"
+        android:id="@+id/refer"
+        android:gravity="center"
+        android:layout_below="@+id/sign_up"
+        android:layout_alignLeft="@+id/sign_up"
+        android:layout_alignStart="@+id/sign_up"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/mybutton"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_alignRight="@+id/sign_up"
+        android:layout_alignEnd="@+id/sign_up"/>
 
 </RelativeLayout>
 

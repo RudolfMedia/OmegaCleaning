@@ -7,7 +7,7 @@ package com.rudolfmedia.danrudolf.omegacleaning;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.os.Parcelable;
 
 import java.util.Locale;
 
@@ -15,7 +15,7 @@ import java.util.Locale;
  * A {@link android.support.v13.app.FragmentPagerAdapter} that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class SectionsPagerAdapter extends android.support.v13.app.FragmentStatePagerAdapter {
 
 	protected Context mContext;
 
@@ -60,6 +60,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 				return mContext.getString(R.string.title_tab3).toUpperCase();
 
 		}
+		return null;
+	}
+
+	@Override
+	public Parcelable saveState()
+	{
 		return null;
 	}
 }
