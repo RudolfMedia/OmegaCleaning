@@ -3,7 +3,6 @@ package com.rudolfmedia.danrudolf.omegacleaning;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,6 +28,7 @@ public class MyAccountFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		final RelativeLayout rootView =  (RelativeLayout) inflater.inflate(R.layout.fragment_account, container, false);
+
 		final View layout = inflater.inflate(R.layout.toastlayout,
 				(ViewGroup) rootView.findViewById(R.id.toast_layout_root));
 
@@ -47,6 +47,21 @@ public class MyAccountFragment extends Fragment{
 			}
 
 		});
+
+		Button referalButton = (Button) rootView.findViewById(R.id.refer);
+		referalButton.setOnClickListener(new View.OnClickListener() {
+			 @Override
+			 public void onClick(View view) {
+
+				 Fragment referalFragment = new ReferFriend();
+				 FragmentManager fragmentManager = getFragmentManager();
+				 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+				 fragmentTransaction.replace(R.id.placeholder, referalFragment);
+				 fragmentTransaction.addToBackStack(null);
+				 fragmentTransaction.commit();
+
+			}
+	 });
 
 
 		Button loginButtom = (Button) rootView.findViewById(R.id.login);
@@ -123,20 +138,6 @@ public class MyAccountFragment extends Fragment{
 					});
 
 				}
-			}
-		});
-
-		Button referFriend = (Button) rootView.findViewById(R.id.refer);
-		referFriend.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-
-				Intent referEmail = new Intent(Intent.ACTION_SEND);
-				referEmail.setType("plain/text");
-				referEmail.putExtra(android.content.Intent.EXTRA_SUBJECT, "Referral From Omega Cleaning");
-				referEmail.putExtra(android.content.Intent.EXTRA_TEXT,
-						"Hello,\n Thanks!");
-				startActivity(Intent.createChooser(referEmail, "Contact Friend With"));
 			}
 		});
 

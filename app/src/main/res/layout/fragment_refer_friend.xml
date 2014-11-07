@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/referFriendFragment"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:inputType="textPersonName"
+        android:hint="Name or Business"
+        android:ems="10"
+        android:id="@+id/referName"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        android:hint="Email or Phone"
+        android:id="@+id/referContact"
+        android:layout_below="@+id/referName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Referral"
+        android:paddingLeft="15dp"
+        android:textSize="20dp"
+        android:paddingRight="15dp"
+        android:id="@+id/sendRefer"
+        android:textColor="#ffffff"
+        android:background="@drawable/mybutton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="141dp"/>
+
+
+</RelativeLayout>
