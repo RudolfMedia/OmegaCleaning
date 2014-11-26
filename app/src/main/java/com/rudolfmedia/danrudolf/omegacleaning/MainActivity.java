@@ -117,7 +117,10 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
 	@Override
 	protected void onResume() {
+
 		super.onResume();
+		Parse.initialize(this, "d7ERHwPLPOpiKL04t4XsJ79hD1exMPJJwoQKMLFi", "40tP4wf2lD24BLHJSn1RQM2noweA8eN3Kx1vxLEy");
+		PushService.setDefaultPushCallback(this, MainActivity.class);
 
 //		if (this.mSectionsPagerAdapter == null){
 //
