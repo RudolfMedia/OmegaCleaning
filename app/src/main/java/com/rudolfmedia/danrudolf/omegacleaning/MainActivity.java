@@ -10,9 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.parse.Parse;
 import com.parse.ParseUser;
-import com.parse.PushService;
 
 
 
@@ -30,8 +28,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-		Parse.initialize(this, "d7ERHwPLPOpiKL04t4XsJ79hD1exMPJJwoQKMLFi", "40tP4wf2lD24BLHJSn1RQM2noweA8eN3Kx1vxLEy");
-		PushService.setDefaultPushCallback(this, MainActivity.class);
+
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -119,19 +116,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	protected void onResume() {
 
 		super.onResume();
-		Parse.initialize(this, "d7ERHwPLPOpiKL04t4XsJ79hD1exMPJJwoQKMLFi", "40tP4wf2lD24BLHJSn1RQM2noweA8eN3Kx1vxLEy");
-		PushService.setDefaultPushCallback(this, MainActivity.class);
 
-//		if (this.mSectionsPagerAdapter == null){
-//
-//			// Create the adapter that will return a fragment for each of the
-//			mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
-//
-//			// Set up the ViewPager with the sections adapter.
-//			mViewPager = (ViewPager) findViewById(R.id.pager);
-//			mViewPager.setAdapter(mSectionsPagerAdapter);
-//
-//		}
 	}
 }
 

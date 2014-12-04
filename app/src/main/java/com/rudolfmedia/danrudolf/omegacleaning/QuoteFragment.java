@@ -43,7 +43,8 @@ public class QuoteFragment extends Fragment {
 					text.setText("Please Enter a Name");
 
 					Toast toast = new Toast(getActivity().getApplicationContext());
-					toast.setGravity(Gravity.TOP, 0, 250);
+					getResources().getDimensionPixelSize(R.dimen.toast_offset);
+					toast.setGravity(Gravity.TOP, 0, getResources().getDimensionPixelSize(R.dimen.toast_offset));
 					toast.setDuration(Toast.LENGTH_SHORT);
 					toast.setView(layout);
 					toast.show();
